@@ -1,0 +1,30 @@
+[1.399s] Invoking command in '/home/rokey/project_ws/src/cobot2/laundry_sorting': AMENT_PREFIX_PATH=/home/rokey/project_ws/install/voice_processing:/home/rokey/project_ws/install/laundry_sorting:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PATH=/home/rokey/project_ws/install/voice_processing/bin:/home/rokey/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/rokey/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=/home/rokey/project_ws/build/laundry_sorting/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages:/home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages:/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/laundry_sorting build --build-base /home/rokey/project_ws/build/laundry_sorting/build install --record /home/rokey/project_ws/build/laundry_sorting/install.log --install-scripts $base/lib/laundry_sorting --single-version-externally-managed install_data
+[1.797s] running egg_info
+[1.829s] writing ../../../build/laundry_sorting/laundry_sorting.egg-info/PKG-INFO
+[1.829s] writing dependency_links to ../../../build/laundry_sorting/laundry_sorting.egg-info/dependency_links.txt
+[1.830s] writing entry points to ../../../build/laundry_sorting/laundry_sorting.egg-info/entry_points.txt
+[1.830s] writing requirements to ../../../build/laundry_sorting/laundry_sorting.egg-info/requires.txt
+[1.830s] writing top-level names to ../../../build/laundry_sorting/laundry_sorting.egg-info/top_level.txt
+[1.906s] reading manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'
+[1.909s] writing manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'
+[1.912s] running build
+[1.913s] running build_py
+[1.914s] copying laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+[1.914s] running install
+[1.948s] running install_lib
+[2.003s] copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+[2.005s] byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_color_publisher.py to bin_color_publisher.cpython-312.pyc
+[2.007s] running install_data
+[2.007s] running install_egg_info
+[2.046s] removing '/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting-0.0.1-py3.12.egg-info' (and everything under it)
+[2.047s] Copying ../../../build/laundry_sorting/laundry_sorting.egg-info to /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting-0.0.1-py3.12.egg-info
+[2.054s] running install_scripts
+[2.242s] Installing bin_color_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+[2.243s] Installing bin_ocr_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+[2.243s] Installing bin_ocr_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+[2.243s] Installing laundry_controller script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+[2.243s] Installing laundry_detection_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+[2.244s] Installing laundry_person_filter_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+[2.244s] Installing webcam_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+[2.244s] writing list of installed files to '/home/rokey/project_ws/build/laundry_sorting/install.log'
+[2.280s] Invoked command in '/home/rokey/project_ws/src/cobot2/laundry_sorting' returned '0': AMENT_PREFIX_PATH=/home/rokey/project_ws/install/voice_processing:/home/rokey/project_ws/install/laundry_sorting:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PATH=/home/rokey/project_ws/install/voice_processing/bin:/home/rokey/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/rokey/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=/home/rokey/project_ws/build/laundry_sorting/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages:/home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages:/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/laundry_sorting build --build-base /home/rokey/project_ws/build/laundry_sorting/build install --record /home/rokey/project_ws/build/laundry_sorting/install.log --install-scripts $base/lib/laundry_sorting --single-version-externally-managed install_data

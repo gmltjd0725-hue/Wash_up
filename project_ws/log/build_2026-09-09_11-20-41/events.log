@@ -1,0 +1,82 @@
+[0.000000] (-) TimerEvent: {}
+[0.000662] (-) JobUnselected: {'identifier': 'object_detection'}
+[0.001336] (-) JobUnselected: {'identifier': 'voice_processing'}
+[0.001434] (laundry_sorting) JobQueued: {'identifier': 'laundry_sorting', 'dependencies': OrderedDict({'voice_processing': '/home/rokey/project_ws/install/voice_processing'})}
+[0.001680] (laundry_sorting) JobStarted: {'identifier': 'laundry_sorting'}
+[0.099595] (-) TimerEvent: {}
+[0.200125] (-) TimerEvent: {}
+[0.300577] (-) TimerEvent: {}
+[0.400928] (-) TimerEvent: {}
+[0.501258] (-) TimerEvent: {}
+[0.601598] (-) TimerEvent: {}
+[0.701951] (-) TimerEvent: {}
+[0.802293] (-) TimerEvent: {}
+[0.902583] (-) TimerEvent: {}
+[1.002905] (-) TimerEvent: {}
+[1.103206] (-) TimerEvent: {}
+[1.203602] (-) TimerEvent: {}
+[1.303989] (-) TimerEvent: {}
+[1.404425] (-) TimerEvent: {}
+[1.504739] (-) TimerEvent: {}
+[1.605062] (-) TimerEvent: {}
+[1.705443] (-) TimerEvent: {}
+[1.805777] (-) TimerEvent: {}
+[1.906097] (-) TimerEvent: {}
+[2.006429] (-) TimerEvent: {}
+[2.106739] (-) TimerEvent: {}
+[2.207062] (-) TimerEvent: {}
+[2.307450] (-) TimerEvent: {}
+[2.408068] (-) TimerEvent: {}
+[2.509349] (-) TimerEvent: {}
+[2.612249] (-) TimerEvent: {}
+[2.712670] (-) TimerEvent: {}
+[2.741382] (laundry_sorting) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../../build/laundry_sorting', 'build', '--build-base', '/home/rokey/project_ws/build/laundry_sorting/build', 'install', '--record', '/home/rokey/project_ws/build/laundry_sorting/install.log', '--install-scripts', '$base/lib/laundry_sorting', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/rokey/project_ws/src/cobot2/laundry_sorting', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'rokey', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'GIO_MODULE_DIR': '/home/rokey/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/snap/code/261/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/rokey', 'CHROME_DESKTOP': 'code.desktop', 'CYCLONEDDS_URI': 'file:///home/rokey/.config/cyclonedds/cyclonedds.xml', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'OLDPWD': '/home/rokey/project_ws', 'TERM_PROGRAM_VERSION': '1.136.1', 'DESKTOP_SESSION': 'ubuntu-xorg', 'GTK_PATH': '/snap/code/261/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/rokey/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/261/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/261/usr/share/code/code', 'MANAGERPID': '2950', 'SYSTEMD_EXEC_PID': '3325', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3965', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/rokey/project_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'rokey', 'JOURNAL_STREAM': '10:19342', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu-xorg:/etc/xdg', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'rokey', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'WINDOWPATH': '2', 'PATH': '/home/rokey/project_ws/install/voice_processing/bin:/home/rokey/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/rokey/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/rokey-550XBE-350XBE:@/tmp/.ICE-unix/3294,unix/rokey-550XBE-350XBE:/tmp/.ICE-unix/3294', 'GTK_EXE_PREFIX': '/snap/code/261/usr', 'INVOCATION_ID': '51d66463acc74133b77c14fb16b12571', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/261/usr/lib/locale', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/rokey/snap/code/261/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu-xorg', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9d523371b1.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/rokey/snap/code/261/.local/share/glib-2.0/schemas', 'ROS_DOMAIN_ID': '99', 'AMENT_PREFIX_PATH': '/home/rokey/project_ws/install/voice_processing:/home/rokey/project_ws/install/laundry_sorting:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu-xorg', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/rokey/project_ws/build/laundry_sorting', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu-xorg:/etc/xdg', 'XDG_DATA_DIRS': '/home/rokey/snap/code/261/.local/share:/home/rokey/snap/code/261:/snap/code/261/usr/share:/usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/rokey/project_ws/build/laundry_sorting/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages:/home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages:/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[2.812793] (-) TimerEvent: {}
+[2.913243] (-) TimerEvent: {}
+[3.013598] (-) TimerEvent: {}
+[3.115043] (-) TimerEvent: {}
+[3.218607] (-) TimerEvent: {}
+[3.319118] (-) TimerEvent: {}
+[3.419588] (-) TimerEvent: {}
+[3.520254] (-) TimerEvent: {}
+[3.620652] (-) TimerEvent: {}
+[3.668426] (laundry_sorting) StdoutLine: {'line': b'running egg_info\n'}
+[3.720749] (-) TimerEvent: {}
+[3.729112] (laundry_sorting) StdoutLine: {'line': b'writing ../../../build/laundry_sorting/laundry_sorting.egg-info/PKG-INFO\n'}
+[3.729755] (laundry_sorting) StdoutLine: {'line': b'writing dependency_links to ../../../build/laundry_sorting/laundry_sorting.egg-info/dependency_links.txt\n'}
+[3.730417] (laundry_sorting) StdoutLine: {'line': b'writing entry points to ../../../build/laundry_sorting/laundry_sorting.egg-info/entry_points.txt\n'}
+[3.731119] (laundry_sorting) StdoutLine: {'line': b'writing requirements to ../../../build/laundry_sorting/laundry_sorting.egg-info/requires.txt\n'}
+[3.731794] (laundry_sorting) StdoutLine: {'line': b'writing top-level names to ../../../build/laundry_sorting/laundry_sorting.egg-info/top_level.txt\n'}
+[3.820897] (-) TimerEvent: {}
+[3.860020] (laundry_sorting) StdoutLine: {'line': b"reading manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'\n"}
+[3.861779] (laundry_sorting) StdoutLine: {'line': b"writing manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'\n"}
+[3.862234] (laundry_sorting) StdoutLine: {'line': b'running build\n'}
+[3.862552] (laundry_sorting) StdoutLine: {'line': b'running build_py\n'}
+[3.863197] (laundry_sorting) StdoutLine: {'line': b'copying laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting\n'}
+[3.864295] (laundry_sorting) StdoutLine: {'line': b'running install\n'}
+[3.878520] (laundry_sorting) StdoutLine: {'line': b'running install_lib\n'}
+[3.921028] (-) TimerEvent: {}
+[3.939008] (laundry_sorting) StdoutLine: {'line': b'copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting\n'}
+[3.940393] (laundry_sorting) StdoutLine: {'line': b'byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_color_publisher.py to bin_color_publisher.cpython-312.pyc\n'}
+[3.944351] (laundry_sorting) StdoutLine: {'line': b'running install_data\n'}
+[3.945007] (laundry_sorting) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.007361] (laundry_sorting) StdoutLine: {'line': b"removing '/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting-0.0.1-py3.12.egg-info' (and everything under it)\n"}
+[4.007901] (laundry_sorting) StdoutLine: {'line': b'Copying ../../../build/laundry_sorting/laundry_sorting.egg-info to /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting-0.0.1-py3.12.egg-info\n'}
+[4.009584] (laundry_sorting) StdoutLine: {'line': b'running install_scripts\n'}
+[4.021128] (-) TimerEvent: {}
+[4.121568] (-) TimerEvent: {}
+[4.221932] (-) TimerEvent: {}
+[4.322299] (-) TimerEvent: {}
+[4.402534] (laundry_sorting) StdoutLine: {'line': b'Installing bin_color_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.402981] (laundry_sorting) StdoutLine: {'line': b'Installing bin_ocr_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.403332] (laundry_sorting) StdoutLine: {'line': b'Installing bin_ocr_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.403714] (laundry_sorting) StdoutLine: {'line': b'Installing bin_position_resolver script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.404032] (laundry_sorting) StdoutLine: {'line': b'Installing laundry_controller script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.404330] (laundry_sorting) StdoutLine: {'line': b'Installing laundry_detection_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.404667] (laundry_sorting) StdoutLine: {'line': b'Installing laundry_person_filter_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.404941] (laundry_sorting) StdoutLine: {'line': b'Installing webcam_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting\n'}
+[4.405277] (laundry_sorting) StdoutLine: {'line': b"writing list of installed files to '/home/rokey/project_ws/build/laundry_sorting/install.log'\n"}
+[4.422433] (-) TimerEvent: {}
+[4.481040] (laundry_sorting) CommandEnded: {'returncode': 0}
+[4.509761] (laundry_sorting) JobEnded: {'identifier': 'laundry_sorting', 'rc': 0}
+[4.511254] (-) EventReactorShutdown: {}

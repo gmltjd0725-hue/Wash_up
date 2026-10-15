@@ -1,0 +1,12 @@
+[console_scripts]
+bin_color_publisher = laundry_sorting.bin_color_publisher:main
+bin_color_viewer = laundry_sorting.bin_color_viewer:main
+bin_move_test = laundry_sorting.bin_move_test:main
+bin_ocr_publisher = laundry_sorting.bin_ocr_publisher:main
+bin_ocr_viewer = laundry_sorting.bin_ocr_viewer:main
+bin_position_resolver = laundry_sorting.bin_position_resolver:main
+laundry_controller = laundry_sorting.laundry_controller:main
+laundry_detection_publisher = laundry_sorting.laundry_detection_publisher:main
+laundry_person_filter_viewer = laundry_sorting.laundry_person_filter_viewer:main
+laundry_pick_force_test = laundry_sorting.laundry_pick_force_test:main
+webcam_publisher = laundry_sorting.webcam_publisher:main

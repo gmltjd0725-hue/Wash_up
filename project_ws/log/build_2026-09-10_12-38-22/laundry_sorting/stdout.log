@@ -1,0 +1,86 @@
+running develop
+Removing /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry-sorting.egg-link (link to .)
+running egg_info
+writing ../../../build/laundry_sorting/laundry_sorting.egg-info/PKG-INFO
+writing dependency_links to ../../../build/laundry_sorting/laundry_sorting.egg-info/dependency_links.txt
+writing entry points to ../../../build/laundry_sorting/laundry_sorting.egg-info/entry_points.txt
+writing requirements to ../../../build/laundry_sorting/laundry_sorting.egg-info/requires.txt
+writing top-level names to ../../../build/laundry_sorting/laundry_sorting.egg-info/top_level.txt
+reading manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'
+writing manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'
+running build
+running build_py
+copying laundry_sorting/bin_drop_test.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/laundry_pick_force_test.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/laundry_controller.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/laundry_controller_before_robot.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/bin_move_test.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/laundry_pick_force_test_backup.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/laundry_pick_force_test_success_backup.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/laundry_controller_before_wait_remove.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+copying laundry_sorting/laundry_pick_bin_test.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+running install
+running install_lib
+creating /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/webcam_publisher.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_detection_publisher.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_drop_test.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_pick_force_test.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/database.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_controller.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_color_viewer.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_controller_before_robot.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_move_test.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_person_filter_viewer.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_ocr_publisher.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_pick_force_test_backup.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_position_resolver.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_pick_force_test_success_backup.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/__init__.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_controller_before_wait_remove.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/hsv_classifier.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/laundry_pick_bin_test.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_ocr_viewer.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/webcam_publisher.py to webcam_publisher.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_detection_publisher.py to laundry_detection_publisher.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_drop_test.py to bin_drop_test.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_pick_force_test.py to laundry_pick_force_test.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/database.py to database.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_controller.py to laundry_controller.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_color_viewer.py to bin_color_viewer.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_controller_before_robot.py to laundry_controller_before_robot.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_move_test.py to bin_move_test.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_person_filter_viewer.py to laundry_person_filter_viewer.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_ocr_publisher.py to bin_ocr_publisher.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_pick_force_test_backup.py to laundry_pick_force_test_backup.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_position_resolver.py to bin_position_resolver.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_pick_force_test_success_backup.py to laundry_pick_force_test_success_backup.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_controller_before_wait_remove.py to laundry_controller_before_wait_remove.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/hsv_classifier.py to hsv_classifier.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_color_publisher.py to bin_color_publisher.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/laundry_pick_bin_test.py to laundry_pick_bin_test.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_ocr_viewer.py to bin_ocr_viewer.cpython-312.pyc
+running install_data
+copying resource/laundry_sorting -> /home/rokey/project_ws/install/laundry_sorting/share/ament_index/resource_index/packages
+copying package.xml -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting
+copying config/laundry_params.yaml -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting/config
+copying sql/schema.sql -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting/sql
+copying launch/vl_system.launch.py -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting/launch
+running install_egg_info
+Copying ../../../build/laundry_sorting/laundry_sorting.egg-info to /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting-0.0.1-py3.12.egg-info
+running install_scripts
+Installing bin_color_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_color_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_move_test script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_ocr_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_ocr_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_position_resolver script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_controller script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_detection_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_person_filter_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_pick_force_test script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing webcam_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+writing list of installed files to '/home/rokey/project_ws/build/laundry_sorting/install.log'

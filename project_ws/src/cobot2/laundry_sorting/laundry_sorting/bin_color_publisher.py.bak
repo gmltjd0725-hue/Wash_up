@@ -1,0 +1,431 @@
+import json
+import time
+
+import cv2
+import numpy as np
+import rclpy
+
+from cv_bridge import CvBridge
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+from std_msgs.msg import String
+
+
+BACKGROUND_FRAMES = 30
+MIN_BIN_AREA = 3000
+
+
+class BinColorPublisher(Node):
+
+    def __init__(self):
+
+        super().__init__("bin_color_publisher")
+
+        self.bridge = CvBridge()
+
+        self.background_frames = []
+        self.background = None
+
+        self.last_log_time = {
+            "BIN_A": 0.0,
+            "BIN_B": 0.0
+        }
+
+        self.last_debug_time = 0.0
+
+        self.create_subscription(
+            Image,
+            "/webcam/image_raw",
+            self.image_callback,
+            10
+        )
+
+        self.publisher = self.create_publisher(
+            String,
+            "/laundry/bin_color_detections",
+            10
+        )
+
+        self.get_logger().info(
+            "BIN Color Publisher 시작"
+        )
+
+        self.get_logger().info(
+            "초기 BIN 배경 저장 중 - 빨래통과 손을 치워주세요."
+        )
+
+    def classify_color(
+        self,
+        frame,
+        contour
+    ):
+
+        mask = np.zeros(
+            frame.shape[:2],
+            dtype=np.uint8
+        )
+
+        cv2.drawContours(
+            mask,
+            [contour],
+            -1,
+            255,
+            thickness=-1
+        )
+
+        hsv = cv2.cvtColor(
+            frame,
+            cv2.COLOR_BGR2HSV
+        )
+
+        lab = cv2.cvtColor(
+            frame,
+            cv2.COLOR_BGR2LAB
+        )
+
+        hsv_pixels = hsv[
+            mask == 255
+        ]
+
+        lab_pixels = lab[
+            mask == 255
+        ]
+
+        if len(hsv_pixels) == 0:
+            return None
+
+        H, S, V = np.median(
+            hsv_pixels,
+            axis=0
+        )
+
+        L, A, B = np.median(
+            lab_pixels,
+            axis=0
+        )
+
+        # -------------------------
+        # DARK 빨래통 → BIN_B
+        # 실제 측정:
+        # H=16 S=110 V=100
+        # -------------------------
+
+        if (
+            8 <= H <= 25
+            and
+            70 <= S <= 170
+            and
+            55 <= V <= 150
+        ):
+            return (
+                "BIN_B",
+                "DARK",
+                H, S, V,
+                L, A, B
+            )
+
+        # -------------------------
+        # LIGHT 빨래통 → BIN_A
+        # 실제 측정:
+        # H=30 S=14 V=106
+        # LAB=109,130,129
+        # -------------------------
+
+        if (
+            S <= 35
+            and
+            70 <= L <= 145
+            and
+            124 <= A <= 136
+            and
+            123 <= B <= 136
+        ):
+            return (
+                "BIN_A",
+                "LIGHT",
+                H, S, V,
+                L, A, B
+            )
+
+        return None
+
+    def image_callback(self, msg):
+
+        frame = self.bridge.imgmsg_to_cv2(
+            msg,
+            desired_encoding="bgr8"
+        )
+
+        gray = cv2.cvtColor(
+            frame,
+            cv2.COLOR_BGR2GRAY
+        )
+
+        gray = cv2.GaussianBlur(
+            gray,
+            (7, 7),
+            0
+        )
+
+        # =========================
+        # 최초 배경 저장
+        # =========================
+
+        if self.background is None:
+
+            self.background_frames.append(
+                gray.astype(np.float32)
+            )
+
+            if (
+                len(self.background_frames)
+                < BACKGROUND_FRAMES
+            ):
+                return
+
+            self.background = np.mean(
+                self.background_frames,
+                axis=0
+            ).astype(np.uint8)
+
+            self.background_frames.clear()
+
+            self.get_logger().info(
+                "BIN 배경 저장 완료"
+            )
+
+            return
+
+        # =========================
+        # 배경과 달라진 형체 검출
+        # =========================
+
+        # =========================
+        # RealSense 자동 노출/밝기 변화 보정
+        # 화면 전체 밝기 변화는 제거하고
+        # 실제 물체의 형체 변화만 남김
+        # =========================
+
+        background_median = float(
+            np.median(self.background)
+        )
+
+        current_median = float(
+            np.median(gray)
+        )
+
+        brightness_shift = (
+            current_median
+            - background_median
+        )
+
+        corrected_gray = np.clip(
+            gray.astype(np.float32)
+            - brightness_shift,
+            0,
+            255
+        ).astype(np.uint8)
+
+        difference = cv2.absdiff(
+            self.background,
+            corrected_gray
+        )
+
+        _, threshold = cv2.threshold(
+            difference,
+            25,
+            255,
+            cv2.THRESH_BINARY
+        )
+
+        kernel = np.ones(
+            (5, 5),
+            np.uint8
+        )
+
+        threshold = cv2.morphologyEx(
+            threshold,
+            cv2.MORPH_OPEN,
+            kernel,
+            iterations=1
+        )
+
+        threshold = cv2.morphologyEx(
+            threshold,
+            cv2.MORPH_CLOSE,
+            kernel,
+            iterations=3
+        )
+
+        contours, _ = cv2.findContours(
+            threshold,
+            cv2.RETR_EXTERNAL,
+            cv2.CHAIN_APPROX_SIMPLE
+        )
+
+        frame_h, frame_w = frame.shape[:2]
+
+        # =========================
+        # DEBUG:
+        # 크기/경계/색상 필터 전에
+        # 가장 큰 움직임 형체 확인
+        # =========================
+
+        now_raw = time.time()
+
+        if (
+            now_raw
+            - self.last_debug_time
+            >= 1.0
+        ):
+
+            if contours:
+
+                raw_contour = max(
+                    contours,
+                    key=cv2.contourArea
+                )
+
+                raw_area = cv2.contourArea(
+                    raw_contour
+                )
+
+                rx, ry, rw, rh = cv2.boundingRect(
+                    raw_contour
+                )
+
+                self.get_logger().info(
+                    f"MOTION RAW "
+                    f"area={raw_area:.0f} "
+                    f"bbox=({rx}, {ry}, {rw}, {rh}) "
+                    f"center=({rx + rw // 2}, {ry + rh // 2})"
+                )
+
+            else:
+
+                self.get_logger().info(
+                    "MOTION RAW 없음"
+                )
+
+            self.last_debug_time = now_raw
+
+        for contour in sorted(
+            contours,
+            key=cv2.contourArea,
+            reverse=True
+        ):
+
+            area = cv2.contourArea(
+                contour
+            )
+
+            if area < MIN_BIN_AREA:
+                continue
+
+            x, y, w, h = cv2.boundingRect(
+                contour
+            )
+
+            margin = 8
+
+            if (
+                x <= margin
+                or y <= margin
+                or x + w >= frame_w - margin
+                or y + h >= frame_h - margin
+            ):
+                continue
+
+            if w < 70 or h < 70:
+                continue
+
+            color_result = self.classify_color(
+                frame,
+                contour
+            )
+
+            if color_result is None:
+                continue
+
+            (
+                bin_name,
+                laundry_type,
+                H, S, V,
+                L, A, B
+            ) = color_result
+
+            cx = x + w // 2
+            cy = y + h // 2
+
+            result = {
+                "bin": bin_name,
+                "laundry_type": laundry_type,
+                "center": [
+                    cx,
+                    cy
+                ],
+                "bbox": [
+                    x,
+                    y,
+                    w,
+                    h
+                ],
+                "source": "COLOR_SHAPE"
+            }
+
+            message = String()
+
+            message.data = json.dumps(
+                result,
+                ensure_ascii=False
+            )
+
+            self.publisher.publish(
+                message
+            )
+
+            now = time.time()
+
+            if (
+                now
+                - self.last_log_time[bin_name]
+                >= 1.0
+            ):
+
+                self.get_logger().info(
+                    f"{laundry_type} BIN -> "
+                    f"{bin_name} "
+                    f"center=({cx}, {cy}) "
+                    f"bbox=({x}, {y}, {w}, {h}) "
+                    f"HSV=({H:.0f},{S:.0f},{V:.0f})"
+                )
+
+                self.last_log_time[
+                    bin_name
+                ] = now
+
+            # 가장 큰 정상 빨래통 하나만 사용
+            break
+
+
+def main(args=None):
+
+    rclpy.init(args=args)
+
+    node = BinColorPublisher()
+
+    try:
+        rclpy.spin(node)
+
+    except KeyboardInterrupt:
+        pass
+
+    finally:
+        node.destroy_node()
+
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

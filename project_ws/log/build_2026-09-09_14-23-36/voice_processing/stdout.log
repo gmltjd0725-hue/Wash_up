@@ -1,0 +1,31 @@
+running egg_info
+writing ../../../build/voice_processing/voice_processing.egg-info/PKG-INFO
+writing dependency_links to ../../../build/voice_processing/voice_processing.egg-info/dependency_links.txt
+writing entry points to ../../../build/voice_processing/voice_processing.egg-info/entry_points.txt
+writing requirements to ../../../build/voice_processing/voice_processing.egg-info/requires.txt
+writing top-level names to ../../../build/voice_processing/voice_processing.egg-info/top_level.txt
+reading manifest file '../../../build/voice_processing/voice_processing.egg-info/SOURCES.txt'
+writing manifest file '../../../build/voice_processing/voice_processing.egg-info/SOURCES.txt'
+running build
+running build_py
+copying voice_processing/wakeup.py -> /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing
+running install
+running install_lib
+copying /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing/wakeup.py -> /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/record_wakeup_samples.py to record_wakeup_samples.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/test_onset_wakeup.py to test_onset_wakeup.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/record_noise_samples.py to record_noise_samples.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/test_wakeup_template.py to test_wakeup_template.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/build_wakeup_template.py to build_wakeup_template.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/test_rms_wakeup.py to test_rms_wakeup.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/test_final_wakeup.py to test_final_wakeup.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/build_wakeup_classifier.py to build_wakeup_classifier.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/wakeup.py to wakeup.cpython-312.pyc
+byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/record_negative_voice_samples.py to record_negative_voice_samples.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing-0.0.1-py3.12.egg-info' (and everything under it)
+Copying ../../../build/voice_processing/voice_processing.egg-info to /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing-0.0.1-py3.12.egg-info
+running install_scripts
+Installing voice_node script to /home/rokey/project_ws/install/voice_processing/lib/voice_processing
+writing list of installed files to '/home/rokey/project_ws/build/voice_processing/install.log'

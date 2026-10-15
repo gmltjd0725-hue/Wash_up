@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: voice-processing
+Version: 0.0.1
+Summary: Voice command processing package for ROS2 robot system
+Maintainer: rokey
+Maintainer-email: rokey@todo.todo
+License: Apache-2.0

@@ -1,0 +1,6 @@
+numpy
+openai
+openwakeword
+pyaudio
+python-dotenv
+setuptools

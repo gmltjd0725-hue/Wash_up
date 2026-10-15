@@ -1,0 +1,217 @@
+import os
+import json
+
+# GTK / Snap 충돌 방지
+for key in [
+    "GTK_PATH",
+    "GTK_EXE_PREFIX",
+    "GTK_DATA_PREFIX",
+    "GDK_PIXBUF_MODULE_FILE",
+]:
+    os.environ.pop(key, None)
+
+import cv2
+import rclpy
+
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+from std_msgs.msg import String
+from cv_bridge import CvBridge
+
+
+TEXT_GRAY = (128, 128, 128)
+
+
+class BinOCRViewer(Node):
+
+    def __init__(self):
+
+        super().__init__(
+            "bin_ocr_viewer"
+        )
+
+        self.bridge = CvBridge()
+
+        self.detected_bins = set()
+        self.raw_text = ""
+
+        self.create_subscription(
+            Image,
+            "/webcam/image_raw",
+            self.image_callback,
+            10
+        )
+
+        self.create_subscription(
+            String,
+            "/laundry/bin_detections",
+            self.bin_callback,
+            10
+        )
+
+        self.get_logger().info(
+            "BIN OCR Viewer 시작"
+        )
+
+    def bin_callback(self, msg):
+
+        try:
+
+            data = json.loads(
+                msg.data
+            )
+
+            bins = data.get(
+                "bins",
+                []
+            )
+
+            self.raw_text = data.get(
+                "raw_text",
+                ""
+            )
+
+            self.detected_bins = set(
+                bins
+            )
+
+            # BIN_A와 BIN_B 모두 등록되면
+            # BIN OCR 창 자동 종료
+            if (
+                "BIN_A" in self.detected_bins
+                and
+                "BIN_B" in self.detected_bins
+            ):
+
+                self.get_logger().info(
+                    "BIN_A / BIN_B 등록 완료"
+                )
+
+                cv2.destroyAllWindows()
+
+                if rclpy.ok():
+                    rclpy.shutdown()
+
+        except Exception:
+
+            pass
+
+    def image_callback(self, msg):
+
+        frame = self.bridge.imgmsg_to_cv2(
+            msg,
+            desired_encoding="bgr8"
+        )
+
+        display = frame.copy()
+
+        height, width = frame.shape[:2]
+
+        roi_width = int(
+            width * 0.70
+        )
+
+        roi_height = int(
+            height * 0.60
+        )
+
+        x1 = (
+            width - roi_width
+        ) // 2
+
+        y1 = (
+            height - roi_height
+        ) // 2
+
+        x2 = x1 + roi_width
+        y2 = y1 + roi_height
+
+        cv2.rectangle(
+            display,
+            (x1, y1),
+            (x2, y2),
+            (255, 255, 255),
+            2
+        )
+
+        bin_a_status = (
+            "OK"
+            if "BIN_A" in self.detected_bins
+            else "WAIT"
+        )
+
+        bin_b_status = (
+            "OK"
+            if "BIN_B" in self.detected_bins
+            else "WAIT"
+        )
+
+        cv2.putText(
+            display,
+            f"BIN_A: {bin_a_status}",
+            (20, 40),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.8,
+            TEXT_GRAY,
+            2
+        )
+
+        cv2.putText(
+            display,
+            f"BIN_B: {bin_b_status}",
+            (20, 75),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.8,
+            TEXT_GRAY,
+            2
+        )
+
+        cv2.putText(
+            display,
+            f"OCR: {self.raw_text[:30]}",
+            (20, 110),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            TEXT_GRAY,
+            2
+        )
+
+        cv2.imshow(
+            "BIN OCR",
+            display
+        )
+
+        cv2.waitKey(1)
+
+
+def main(args=None):
+
+    rclpy.init(
+        args=args
+    )
+
+    node = BinOCRViewer()
+
+    try:
+
+        rclpy.spin(
+            node
+        )
+
+    except KeyboardInterrupt:
+
+        pass
+
+    finally:
+
+        cv2.destroyAllWindows()
+
+        node.destroy_node()
+
+        if rclpy.ok():
+
+            rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

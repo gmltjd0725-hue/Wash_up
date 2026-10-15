@@ -1,0 +1,12 @@
+source;share/voice_processing/hook/path.ps1
+source;share/voice_processing/hook/path.dsv
+source;share/voice_processing/hook/path.sh
+source;share/voice_processing/hook/pythonpath.ps1
+source;share/voice_processing/hook/pythonpath.dsv
+source;share/voice_processing/hook/pythonpath.sh
+source;share/voice_processing/hook/pythonscriptspath.ps1
+source;share/voice_processing/hook/pythonscriptspath.dsv
+source;share/voice_processing/hook/pythonscriptspath.sh
+source;share/voice_processing/hook/ament_prefix_path.ps1
+source;share/voice_processing/hook/ament_prefix_path.dsv
+source;share/voice_processing/hook/ament_prefix_path.sh

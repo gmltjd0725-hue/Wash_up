@@ -1,0 +1,2 @@
+[console_scripts]
+voice_node = voice_processing.voice_node:main

@@ -1,0 +1,335 @@
+import time
+import wave
+from collections import deque
+
+import numpy as np
+import pyaudio
+
+from .stt import SpeechToText
+
+
+class WakeupDetector:
+
+    def __init__(
+        self,
+        wakeword_name="야",
+        record_seconds=5
+    ):
+
+        self.wakeword_name = wakeword_name
+
+        self.rate = 16000
+        self.channels = 1
+        self.chunk = 1024
+        self.format = pyaudio.paInt16
+
+        self.calibration_seconds = 3.0
+
+        self.pre_roll_chunks = 4
+        self.post_trigger_chunks = 12
+
+        self.audio_path = (
+            "/tmp/ya_wakeup_check.wav"
+        )
+
+        self.audio = pyaudio.PyAudio()
+        self.stream = None
+
+        self.stt = SpeechToText()
+
+        print(
+            f"[WAKEUP] 호출어 설정: "
+            f"{self.wakeword_name}"
+        )
+
+    def calculate_rms(self, raw):
+
+        signal = np.frombuffer(
+            raw,
+            dtype=np.int16
+        ).astype(np.float32)
+
+        if signal.size == 0:
+            return 0.0
+
+        return float(
+            np.sqrt(
+                np.mean(signal ** 2)
+            )
+        )
+
+    def normalize_text(self, text):
+
+        return (
+            text
+            .lower()
+            .replace(",", "")
+            .replace(".", "")
+            .replace("!", "")
+            .replace("?", "")
+            .replace(" ", "")
+            .strip()
+        )
+
+    def is_wakeup_text(self, text):
+
+        normalized = self.normalize_text(
+            text
+        )
+
+        print(
+            f"[WAKEUP] STT 결과: "
+            f"{normalized}"
+        )
+
+        candidates = [
+            "야",
+            "야아",
+            "얘",
+
+            "ya",
+            "yaa",
+            "yah",
+            "yeah",
+
+            "ja",
+            "jaa",
+
+            "や",
+            "やあ",
+        ]
+
+        return normalized in candidates
+
+    def start_microphone(self):
+
+        if self.stream is not None:
+            return
+
+        self.stream = self.audio.open(
+            format=self.format,
+            channels=self.channels,
+            rate=self.rate,
+            input=True,
+            frames_per_buffer=self.chunk
+        )
+
+    def calibrate_noise(self):
+
+        print(
+            "[WAKEUP] 주변소음 측정 중..."
+        )
+
+        values = []
+
+        total_chunks = int(
+            self.rate
+            / self.chunk
+            * self.calibration_seconds
+        )
+
+        for _ in range(total_chunks):
+
+            raw = self.stream.read(
+                self.chunk,
+                exception_on_overflow=False
+            )
+
+            values.append(
+                self.calculate_rms(raw)
+            )
+
+        baseline = float(
+            np.median(values)
+        )
+
+        trigger = max(
+            baseline + 180.0,
+            min(
+                baseline * 1.45,
+                baseline + 4000.0
+            )
+        )
+
+        print(
+            f"[WAKEUP] 백색소음 RMS: "
+            f"{baseline:.0f}"
+        )
+
+        print(
+            f"[WAKEUP] 음성 시작 기준: "
+            f"{trigger:.0f}"
+        )
+
+        return trigger
+
+    def save_audio(self, frames):
+
+        with wave.open(
+            self.audio_path,
+            "wb"
+        ) as wav_file:
+
+            wav_file.setnchannels(
+                self.channels
+            )
+
+            wav_file.setsampwidth(
+                self.audio.get_sample_size(
+                    self.format
+                )
+            )
+
+            wav_file.setframerate(
+                self.rate
+            )
+
+            wav_file.writeframes(
+                b"".join(frames)
+            )
+
+    def wait_for_wakeup(self):
+
+        try:
+
+            self.start_microphone()
+
+            trigger_threshold = (
+                self.calibrate_noise()
+            )
+
+            print(
+                "[WAKEUP] '야' 대기 중"
+            )
+
+            pre_roll = deque(
+                maxlen=self.pre_roll_chunks
+            )
+
+            while True:
+
+                raw = self.stream.read(
+                    self.chunk,
+                    exception_on_overflow=False
+                )
+
+                rms = self.calculate_rms(
+                    raw
+                )
+
+                pre_roll.append(
+                    raw
+                )
+
+                if rms < trigger_threshold:
+                    continue
+
+                print(
+                    f"[WAKEUP] 음성 감지 "
+                    f"RMS={rms:.0f}"
+                )
+
+                frames = list(
+                    pre_roll
+                )
+
+                for _ in range(
+                    self.post_trigger_chunks
+                ):
+
+                    frames.append(
+                        self.stream.read(
+                            self.chunk,
+                            exception_on_overflow=False
+                        )
+                    )
+
+                self.save_audio(
+                    frames
+                )
+
+                text = self.stt.transcribe(
+                    self.audio_path
+                )
+
+                if not text:
+
+                    print(
+                        "[WAKEUP] STT 실패"
+                    )
+
+                    pre_roll.clear()
+                    continue
+
+                if self.is_wakeup_text(
+                    text
+                ):
+
+                    print(
+                        "[WAKEUP] '야' 감지 성공"
+                    )
+
+                    self.stop_microphone()
+
+                    return True
+
+                print(
+                    "[WAKEUP] 다른 음성, 무시"
+                )
+
+                pre_roll.clear()
+
+                time.sleep(
+                    0.3
+                )
+
+        except KeyboardInterrupt:
+
+            print(
+                "\n[WAKEUP] 사용자 종료"
+            )
+
+            return False
+
+        except Exception as e:
+
+            print(
+                f"[WAKEUP ERROR] {e}"
+            )
+
+            return False
+
+    def stop_microphone(self):
+
+        if self.stream is not None:
+
+            try:
+
+                self.stream.stop_stream()
+                self.stream.close()
+
+            except Exception:
+
+                pass
+
+            self.stream = None
+
+    def close(self):
+
+        self.stop_microphone()
+
+        if self.audio is not None:
+
+            try:
+
+                self.audio.terminate()
+
+            except Exception:
+
+                pass
+
+            self.audio = None
+
+        print(
+            "[WAKEUP] 마이크 종료"
+        )

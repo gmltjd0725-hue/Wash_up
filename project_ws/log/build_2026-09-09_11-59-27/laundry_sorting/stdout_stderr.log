@@ -1,0 +1,29 @@
+running egg_info
+writing ../../../build/laundry_sorting/laundry_sorting.egg-info/PKG-INFO
+writing dependency_links to ../../../build/laundry_sorting/laundry_sorting.egg-info/dependency_links.txt
+writing entry points to ../../../build/laundry_sorting/laundry_sorting.egg-info/entry_points.txt
+writing requirements to ../../../build/laundry_sorting/laundry_sorting.egg-info/requires.txt
+writing top-level names to ../../../build/laundry_sorting/laundry_sorting.egg-info/top_level.txt
+reading manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'
+writing manifest file '../../../build/laundry_sorting/laundry_sorting.egg-info/SOURCES.txt'
+running build
+running build_py
+copying laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting
+running install
+running install_lib
+copying /home/rokey/project_ws/build/laundry_sorting/build/lib/laundry_sorting/bin_color_publisher.py -> /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting
+byte-compiling /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting/bin_color_publisher.py to bin_color_publisher.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting-0.0.1-py3.12.egg-info' (and everything under it)
+Copying ../../../build/laundry_sorting/laundry_sorting.egg-info to /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry_sorting-0.0.1-py3.12.egg-info
+running install_scripts
+Installing bin_color_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_ocr_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_ocr_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_position_resolver script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_controller script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_detection_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_person_filter_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing webcam_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+writing list of installed files to '/home/rokey/project_ws/build/laundry_sorting/install.log'

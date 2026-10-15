@@ -1,0 +1,5 @@
+laundry_controller:
+  ros__parameters:
+
+    saturation_threshold: 102.0
+    value_threshold: 191.0

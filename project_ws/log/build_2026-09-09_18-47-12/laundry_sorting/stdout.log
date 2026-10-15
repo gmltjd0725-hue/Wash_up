@@ -1,0 +1,29 @@
+running develop
+running egg_info
+writing laundry_sorting.egg-info/PKG-INFO
+writing dependency_links to laundry_sorting.egg-info/dependency_links.txt
+writing entry points to laundry_sorting.egg-info/entry_points.txt
+writing requirements to laundry_sorting.egg-info/requires.txt
+writing top-level names to laundry_sorting.egg-info/top_level.txt
+reading manifest file 'laundry_sorting.egg-info/SOURCES.txt'
+writing manifest file 'laundry_sorting.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/rokey/project_ws/install/laundry_sorting/lib/python3.12/site-packages/laundry-sorting.egg-link (link to .)
+Installing bin_color_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_color_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_ocr_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_ocr_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing bin_position_resolver script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_controller script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_detection_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_person_filter_viewer script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing laundry_pick_force_test script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+Installing webcam_publisher script to /home/rokey/project_ws/install/laundry_sorting/lib/laundry_sorting
+
+Installed /home/rokey/project_ws/build/laundry_sorting
+running symlink_data
+symbolically linking /home/rokey/project_ws/build/laundry_sorting/resource/laundry_sorting -> /home/rokey/project_ws/install/laundry_sorting/share/ament_index/resource_index/packages
+symbolically linking /home/rokey/project_ws/build/laundry_sorting/package.xml -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting
+symbolically linking /home/rokey/project_ws/build/laundry_sorting/config/laundry_params.yaml -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting/config
+symbolically linking /home/rokey/project_ws/build/laundry_sorting/sql/schema.sql -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting/sql
+symbolically linking /home/rokey/project_ws/build/laundry_sorting/launch/vl_system.launch.py -> /home/rokey/project_ws/install/laundry_sorting/share/laundry_sorting/launch

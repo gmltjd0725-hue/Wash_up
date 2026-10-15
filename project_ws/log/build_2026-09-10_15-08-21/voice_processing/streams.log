@@ -1,0 +1,30 @@
+[1.525s] Invoking command in '/home/rokey/project_ws/src/cobot2/voice_processing': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/rokey/project_ws/build/voice_processing/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/voice_processing build --build-base /home/rokey/project_ws/build/voice_processing/build install --record /home/rokey/project_ws/build/voice_processing/install.log --install-scripts $base/lib/voice_processing --single-version-externally-managed install_data
+[1.911s] running egg_info
+[1.946s] writing ../../../build/voice_processing/voice_processing.egg-info/PKG-INFO
+[1.946s] writing dependency_links to ../../../build/voice_processing/voice_processing.egg-info/dependency_links.txt
+[1.946s] writing entry points to ../../../build/voice_processing/voice_processing.egg-info/entry_points.txt
+[1.946s] writing requirements to ../../../build/voice_processing/voice_processing.egg-info/requires.txt
+[1.946s] writing top-level names to ../../../build/voice_processing/voice_processing.egg-info/top_level.txt
+[2.005s] reading manifest file '../../../build/voice_processing/voice_processing.egg-info/SOURCES.txt'
+[2.006s] writing manifest file '../../../build/voice_processing/voice_processing.egg-info/SOURCES.txt'
+[2.007s] running build
+[2.007s] running build_py
+[2.007s] copying voice_processing/voice_node.py -> /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing
+[2.008s] copying voice_processing/wakeup.py -> /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing
+[2.008s] copying voice_processing/voice_node_before_remove_wakeup.py -> /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing
+[2.008s] running install
+[2.022s] running install_lib
+[2.065s] copying /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing/voice_node.py -> /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing
+[2.065s] copying /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing/wakeup.py -> /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing
+[2.065s] copying /home/rokey/project_ws/build/voice_processing/build/lib/voice_processing/voice_node_before_remove_wakeup.py -> /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing
+[2.066s] byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/voice_node.py to voice_node.cpython-312.pyc
+[2.068s] byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/wakeup.py to wakeup.cpython-312.pyc
+[2.071s] byte-compiling /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing/voice_node_before_remove_wakeup.py to voice_node_before_remove_wakeup.cpython-312.pyc
+[2.073s] running install_data
+[2.074s] running install_egg_info
+[2.102s] removing '/home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing-0.0.1-py3.12.egg-info' (and everything under it)
+[2.102s] Copying ../../../build/voice_processing/voice_processing.egg-info to /home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages/voice_processing-0.0.1-py3.12.egg-info
+[2.104s] running install_scripts
+[2.292s] Installing voice_node script to /home/rokey/project_ws/install/voice_processing/lib/voice_processing
+[2.292s] writing list of installed files to '/home/rokey/project_ws/build/voice_processing/install.log'
+[2.338s] Invoked command in '/home/rokey/project_ws/src/cobot2/voice_processing' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/rokey/project_ws/build/voice_processing/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rokey/project_ws/install/voice_processing/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/voice_processing build --build-base /home/rokey/project_ws/build/voice_processing/build install --record /home/rokey/project_ws/build/voice_processing/install.log --install-scripts $base/lib/voice_processing --single-version-externally-managed install_data

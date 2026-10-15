@@ -1,0 +1,88 @@
+# =========================
+# Hey Rokey Wake Word Model
+# =========================
+
+# 최종 모델 이름
+model_name: "hey_rokey"
+
+# 실제 인식할 호출어
+target_phrase:
+  - "hey rokey"
+
+# 잘못 인식하면 안 되는 문구
+# 초기에는 비워두고 실제 테스트 후 추가
+custom_negative_phrases: []
+
+# =========================
+# Synthetic Voice Generation
+# =========================
+
+# 학습용 positive sample 수
+n_samples: 500
+
+# 검증용 sample 수
+n_samples_val: 50
+
+# Piper TTS 생성 batch
+tts_batch_size: 50
+
+# 데이터 증강 batch
+augmentation_batch_size: 16
+
+# 동일 음성 데이터 증강 반복 횟수
+augmentation_rounds: 1
+
+# Piper sample generator
+piper_sample_generator_path: "/home/rokey/project_ws/piper-sample-generator"
+
+# =========================
+# Output
+# =========================
+
+output_dir: "/home/rokey/project_ws/laundry_project/wakeword_training_output"
+
+# =========================
+# Training Data
+# =========================
+
+# Room Impulse Response
+rir_paths:
+  - "/home/rokey/project_ws/laundry_project/training_data/mit_rirs/16khz"
+
+# 주변 소음 데이터
+background_paths:
+  - "/home/rokey/project_ws/laundry_project/training_data/background_clips/fsd50k_sample"
+
+background_paths_duplication_rate:
+  - 1
+
+# False Positive 검증 데이터
+false_positive_validation_data_path: "/home/rokey/project_ws/laundry_project/training_data/validation_set_features.npy"
+
+# 외부 대규모 negative feature는 초기 테스트에서는 사용하지 않음
+feature_data_files: {}
+
+# =========================
+# Training Batch
+# =========================
+
+batch_n_per_class:
+  adversarial_negative: 2
+  positive: 2
+
+# =========================
+# Model
+# =========================
+
+model_type: "dnn"
+layer_size: 32
+
+# =========================
+# Training
+# =========================
+
+steps: 1000
+
+max_negative_weight: 1500
+
+target_false_positives_per_hour: 0.2
