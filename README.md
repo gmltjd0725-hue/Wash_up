@@ -1,4 +1,12 @@
 # Wash_up | ROS 2 기반 세탁물 자동 분류 로봇
+<div align="center">
+  <img
+    src="docs/images/washup_robot_concept.jpg"
+    alt="Wash_up 로봇팔의 세탁물 파지 개념 이미지"
+    width="600"
+  >
+  <p>AI로 제작한 프로젝트 개념 이미지입니다.</p>
+</div>
 
 > **음성 명령 → 세탁물 감지 → 밝기 분류 → 분류함 확인 → 협동로봇 이송 → DB 기록**  
 > Doosan Robotics M0609 · OnRobot RG2 · ROS 2 Jazzy · OpenCV · PostgreSQL
